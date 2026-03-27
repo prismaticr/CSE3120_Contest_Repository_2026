@@ -13,6 +13,13 @@ greet BYTE "Welcome to the Casino! Where money is pratically free! ", 0Dh, 0Ah
 .code
 main PROC
 
+; greeting message
+MOV EDX, OFFSET greet
+call WriteString
+
+; output balance
+MOV EAX, balance
+call WriteDec
 
 
 INVOKE ExitProcess,0
