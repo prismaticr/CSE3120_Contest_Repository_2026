@@ -31,6 +31,24 @@ MOV EDX, OFFSET buffer ; point to buffer
 MOV ECX, LENGTHOF buffer - 1
 CALL Readstring
 
+MOV esi, 0 ; 
+
+cmp buffer[ESI], 0
+je endloop
+cmp buffer[ESI], 'g' ;
+JNE endloop
+
+jmp workLoop
+
+; work
+workLoop:
+   ;
+
+; exit 
+endloop:
+   ; exit statment
+   exit
+
 INVOKE ExitProcess,0
 main ENDP
 END main
