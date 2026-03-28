@@ -7,8 +7,9 @@ balance DWORD 100 ; how much the player starts with
 
 ; message to explain game and rules
 greet BYTE "Welcome to the Casino! Where money is pratically free! ", 0Dh, 0Ah
-   BYTE "Type g to gamble or l to leave if you're a coward! "
    BYTE "You're current balance is: ", 0
+greet2 BYTE 0Dh, 0Ah, "Type g to gamble or l to leave if you're a coward! "
+buffer BYTE 1 DUP(?), 0
 
 .code
 main PROC
@@ -21,6 +22,9 @@ call WriteString
 MOV EAX, balance
 call WriteDec
 
+; start game options (start with 2: gamble or leave)
+MOV EDX, OFFSET greet2
+call WriteString
 
 INVOKE ExitProcess,0
 main ENDP
