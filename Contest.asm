@@ -48,8 +48,6 @@ betLoop:
 
 ; work
 workLoop:
-   ; take balance and use as bet
-   MOV EAX, balance
    
    ; notify player
    MOV EDX, OFFSET betMessage1
