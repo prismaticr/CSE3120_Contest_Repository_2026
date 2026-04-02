@@ -94,12 +94,29 @@ winBet:
    MOV balance, EAX
    POP EAX
    
-   MOV EDX, OFFSET betMessageW
-   CALL WriteString
    ; change color of screen on win
+   CALL celebrate
    
    ; sent back to bet loop
    JMP betLoop
+
+celebrate PROC
+   MOV EAX, white * 16 + black
+   CALL SetTextColor
+   MOV EDX, OFFSET betMessageW
+   CALL WriteString
+   
+   MOV EAX, blue * 16 + black
+   CALL SetTextColor
+   MOV EDX, OFFSET betMessageW
+   CALL WriteString
+   
+   MOV EAX, black * 16 + white
+   CALL SetTextColor
+   MOV EDX, OFFSET betMessageW
+   CALL WriteString
+   RET
+celebrate ENDP
 
 loseBet:
    MOV balance, 0 ; remove balance
