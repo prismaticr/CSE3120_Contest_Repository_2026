@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "C1_Project", "C1_Project\C1_Project.vcxproj", "{67A7AF16-11AA-4111-A5C3-7E4F955C72FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "feature test", "feature test", "{B57A63C5-5527-4FDA-B098-10D8F5D1AD92}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Contest.asm = ..\..\Contest.asm
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Main branch", "Main branch", "{33A8330C-B7AC-46EB-87DA-76C4CF8BEFC1}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Main\Contest.asm = ..\..\Main\Contest.asm
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67A7AF16-11AA-4111-A5C3-7E4F955C72FB}.Debug|x64.ActiveCfg = Debug|x64
+		{67A7AF16-11AA-4111-A5C3-7E4F955C72FB}.Debug|x64.Build.0 = Debug|x64
+		{67A7AF16-11AA-4111-A5C3-7E4F955C72FB}.Debug|x86.ActiveCfg = Debug|Win32
+		{67A7AF16-11AA-4111-A5C3-7E4F955C72FB}.Debug|x86.Build.0 = Debug|Win32
+		{67A7AF16-11AA-4111-A5C3-7E4F955C72FB}.Release|x64.ActiveCfg = Release|x64
+		{67A7AF16-11AA-4111-A5C3-7E4F955C72FB}.Release|x64.Build.0 = Release|x64
+		{67A7AF16-11AA-4111-A5C3-7E4F955C72FB}.Release|x86.ActiveCfg = Release|Win32
+		{67A7AF16-11AA-4111-A5C3-7E4F955C72FB}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
