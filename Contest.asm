@@ -17,7 +17,10 @@ rand DWORD ?
 
 betMessageW BYTE "YOU WON!!! \(@^0^@)/", 0Dh, 0Ah, 0
 
-exitMessage BYTE "I hope you come back again!", 0Dh, 0Ah, 0
+betMessageL BYTE "Ermmm... You lost it all lol", 0Dh, 0Ah
+   BYTE "Anyway, come back when you ain't broke", 0Dh, 0Ah, 0
+
+exitMessage BYTE "Don't forget to come back!! :)", 0Dh, 0Ah, 0
 
 .code
 main PROC
@@ -90,7 +93,11 @@ winBet:
 loseBet:
    MOV balance, 0 ; remove balance
    
-   JMP betLoop
+   MOV EDX, OFFSET betMessageL
+   CALL WriteString
+   
+   ; JMP betLoop
+   JMP endloop
 
 ; exit 
 endloop:
