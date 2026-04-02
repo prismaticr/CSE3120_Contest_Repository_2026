@@ -18,7 +18,7 @@ buffer BYTE 2 DUP(?), 0 ; has to one bigger than expected size
 betMessage1 BYTE "Your bet is placed!", 0Dh, 0Ah, 0
 rand DWORD ?
 
-oddsCeiling DWORD 2
+oddsCeiling DWORD 99
 
 betMessageW BYTE "YOU WON!!! \(@^0^@)/", 0Dh, 0Ah, 0
 
