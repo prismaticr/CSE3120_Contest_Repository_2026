@@ -8,7 +8,7 @@ balance DWORD 100 ; how much the player starts with
 ; message to explain game and rules
 greet BYTE "Welcome to the Casino! Where money is pratically free! ", 0Dh, 0Ah, 0
 balStatement BYTE "You're current balance is: ", 0
-greet2 BYTE 0Dh, 0Ah, "Type g to gamble or l to leave if you're a coward! "
+greet2 BYTE 0Dh, 0Ah, "Type g to gamble or l to leave if you're a coward! ", 0
 buffer BYTE 2 DUP(?), 0 ; has to one bigger than expected size
 
 betMessage1 BYTE "Your bet is placed!", 0Dh, 0Ah, 0
