@@ -111,6 +111,16 @@ celebrate PROC
    MOV EDX, OFFSET betMessageW
    CALL WriteString
    
+   MOV EAX, yellow * 16 + black
+   CALL SetTextColor
+   MOV EDX, OFFSET betMessageW
+   CALL WriteString
+   
+   MOV EAX, white * 16 + black
+   CALL SetTextColor
+   MOV EDX, OFFSET betMessageW
+   CALL WriteString
+   
    MOV EAX, black * 16 + white
    CALL SetTextColor
    MOV EDX, OFFSET betMessageW
