@@ -6,13 +6,16 @@ ExitProcess PROTO, dwExitCode:DWORD
 balance DWORD 100 ; how much the player starts with
 
 ; message to explain game and rules
-greet BYTE "Welcome to the Casino! Where money is pratically free! ", 0Dh, 0Ah, 0
+greet BYTE "Welcome to the Casino! Where money is pratically free! ", 0Dh, 0Ah
+   BYTE "We'll give you 100 dollars to start for free (*^_^*)", 0Dh, 0Ah, 0
 balStatement BYTE "You're current balance is: ", 0
 greet2 BYTE 0Dh, 0Ah, "Type g to gamble or l to leave if you're a coward! ", 0
 buffer BYTE 2 DUP(?), 0 ; has to one bigger than expected size
 
 betMessage1 BYTE "Your bet is placed!", 0Dh, 0Ah, 0
 rand DWORD ?
+
+betMessageW BYTE "YOU WON!!! \(@^0^@)/", 0Dh, 0Ah, 0
 
 exitMessage BYTE "I hope you come back again!", 0Dh, 0Ah, 0
 
@@ -25,6 +28,9 @@ call WriteString
 
 betLoop:
    ; output balance
+   MOV EDX, OFFSET balStatement
+   call WriteString
+   
    MOV EAX, balance
    call WriteDec
 
@@ -73,6 +79,9 @@ winBet:
    ADD EAX, EAX ; double amount
    MOV balance, EAX
    POP EAX
+   
+   MOV EDX, OFFSET betMessageW
+   CALL WriteString
    ; change color of screen on win
    
    ; sent back to bet loop
