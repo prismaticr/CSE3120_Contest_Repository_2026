@@ -15,6 +15,8 @@ buffer BYTE 2 DUP(?), 0 ; has to one bigger than expected size
 betMessage1 BYTE "Your bet is placed!", 0Dh, 0Ah, 0
 rand DWORD ?
 
+oddsCeiling DWORD 2
+
 betMessageW BYTE "YOU WON!!! \(@^0^@)/", 0Dh, 0Ah, 0
 
 betMessageL BYTE "Ermmm... You lost it all lol", 0Dh, 0Ah
@@ -28,6 +30,8 @@ main PROC
 ; greeting message
 MOV EDX, OFFSET greet
 call WriteString
+
+CALL Randomize ; sets seed
 
 betLoop:
    ; output balance
@@ -63,8 +67,11 @@ workLoop:
    CALL WriteString ; Maybe also print new balance
    
    ; run calculation
-   ; placeholder
-   MOV rand, 0
+   PUSH EAX
+   MOV EAX, oddsCeiling
+   call RandomRange ; Gets a random number in range 0 - (EAX-1)
+   MOV rand, EAX
+   POP EAX
    
    ; win lose branch
    PUSH ESI
@@ -97,7 +104,7 @@ loseBet:
    CALL WriteString
    
    ; JMP betLoop
-   JMP endloop
+   JMP endloop ; no money left to take so exit
 
 ; exit 
 endloop:
