@@ -10,7 +10,9 @@ greet BYTE "Welcome to the Casino! Where money is pratically free! ", 0Dh, 0Ah
    BYTE "You're current balance is: ", 0
 greet2 BYTE 0Dh, 0Ah, "Type g to gamble or l to leave if you're a coward! "
 buffer BYTE 2 DUP(?), 0 ; has to one bigger than expected size
+
 betMessage1 BYTE "Your bet is placed!", 0Dh, 0Ah, 0
+rand DWORD ?
 
 exitMessage BYTE "I hope you come back again!", 0Dh, 0Ah, 0
 
@@ -45,8 +47,6 @@ jmp workLoop
 
 ; work
 workLoop:
-   ; push registers?
-   
    ; take balance and use as bet
    MOV EAX, balance
    
@@ -55,8 +55,19 @@ workLoop:
    CALL WriteString ; Maybe also print new balance
    
    ; run calculation
+   ; placeholder
+   MOV rand, 0
    
    ; win lose branch
+   PUSH ESI
+   MOV ESI, 0
+   CMP ESI, rand
+   POP ESI
+   
+   JZ  winBet
+   JMP loseBet
+winBet:
+loseBet:
 
 ; exit 
 endloop:
