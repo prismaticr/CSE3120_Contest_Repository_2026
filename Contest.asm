@@ -69,8 +69,12 @@ workLoop:
    JMP loseBet
 winBet:
    ; balance is updated
-   MOV balance, 200 ; change with proper payout
-   
+   PUSH EAX
+   MOV EAX, balance
+   SHL EAX, 1 ; multiply by 2
+   ADD EAX, EAX ; double amount
+   MOV balance, EAX
+   POP EAX
    ; change color of screen on win
    
    ; sent back to bet loop
