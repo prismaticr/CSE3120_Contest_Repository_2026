@@ -68,7 +68,18 @@ workLoop:
    JZ  winBet
    JMP loseBet
 winBet:
+   ; balance is updated
+   MOV balance, 200 ; change with proper payout
+   
+   ; change color of screen on win
+   
+   ; sent back to bet loop
+   JMP betLoop
+
 loseBet:
+   MOV balance, 0 ; remove balance
+   
+   JMP betLoop
 
 ; exit 
 endloop:
