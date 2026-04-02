@@ -72,7 +72,9 @@ loseBet:
 
 ; exit 
 endloop:
-   ; exit statment
+   ; exit statement
+   MOV EDX, OFFSET exitMessage
+   call WriteString
    exit
 
 INVOKE ExitProcess,0
