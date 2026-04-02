@@ -105,21 +105,29 @@ celebrate PROC
    CALL SetTextColor
    MOV EDX, OFFSET betMessageW
    CALL WriteString
+   MOV EAX, 200
+   CALL Delay ; delays each win message so it rolls out
    
    MOV EAX, blue * 16 + black
    CALL SetTextColor
    MOV EDX, OFFSET betMessageW
    CALL WriteString
+   MOV EAX, 200
+   CALL Delay
    
    MOV EAX, yellow * 16 + black
    CALL SetTextColor
    MOV EDX, OFFSET betMessageW
    CALL WriteString
+   MOV EAX, 200
+   CALL Delay
    
    MOV EAX, white * 16 + black
    CALL SetTextColor
    MOV EDX, OFFSET betMessageW
    CALL WriteString
+   MOV EAX, 200
+   CALL Delay
    
    MOV EAX, black * 16 + white
    CALL SetTextColor
@@ -142,6 +150,9 @@ endloop:
    ; exit statement
    MOV EDX, OFFSET exitMessage
    call WriteString
+   
+   MOV EAX, 95000 ; delay exit by n ms
+   CALL Delay
    exit
 
 INVOKE ExitProcess,0
