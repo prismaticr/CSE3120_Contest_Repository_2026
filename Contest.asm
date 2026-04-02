@@ -12,6 +12,8 @@ greet2 BYTE 0Dh, 0Ah, "Type g to gamble or l to leave if you're a coward! "
 buffer BYTE 2 DUP(?), 0 ; has to one bigger than expected size
 betMessage1 BYTE "Your bet is placed!", 0Dh, 0Ah, 0
 
+exitMessage BYTE "I hope you come back again!", 0Dh, 0Ah, 0
+
 .code
 main PROC
 
@@ -44,11 +46,9 @@ jmp workLoop
 ; work
 workLoop:
    ; push registers?
-   PUSH EAX
    
    ; take balance and use as bet
    MOV EAX, balance
-   MOV balance, 0
    
    ; notify player
    MOV EDX, OFFSET betMessage1
