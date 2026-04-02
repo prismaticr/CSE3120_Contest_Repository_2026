@@ -2,6 +2,9 @@ INCLUDE Irvine32.inc
 .386
 .stack 4096
 ExitProcess PROTO, dwExitCode:DWORD
+; Random functions were not learned in class (Randomize & RandomRange)
+; I had to find a way to create RNG and luckily Irvine has one
+
 .data
 balance DWORD 100 ; how much the player starts with
 
@@ -81,6 +84,7 @@ workLoop:
    
    JZ  winBet
    JMP loseBet
+
 winBet:
    ; balance is updated
    PUSH EAX
