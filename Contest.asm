@@ -151,7 +151,7 @@ endloop:
    MOV EDX, OFFSET exitMessage
    call WriteString
    
-   MOV EAX, 95000 ; delay exit by n ms
+   MOV EAX, 35000 ; delay exit by n ms
    CALL Delay
    exit
 
