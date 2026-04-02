@@ -6,8 +6,8 @@ ExitProcess PROTO, dwExitCode:DWORD
 balance DWORD 100 ; how much the player starts with
 
 ; message to explain game and rules
-greet BYTE "Welcome to the Casino! Where money is pratically free! ", 0Dh, 0Ah
-   BYTE "You're current balance is: ", 0
+greet BYTE "Welcome to the Casino! Where money is pratically free! ", 0Dh, 0Ah, 0
+balStatement BYTE "You're current balance is: ", 0
 greet2 BYTE 0Dh, 0Ah, "Type g to gamble or l to leave if you're a coward! "
 buffer BYTE 2 DUP(?), 0 ; has to one bigger than expected size
 
@@ -23,27 +23,28 @@ main PROC
 MOV EDX, OFFSET greet
 call WriteString
 
-; output balance
-MOV EAX, balance
-call WriteDec
+betLoop:
+   ; output balance
+   MOV EAX, balance
+   call WriteDec
 
-; start game options (start with 2: gamble or leave)
-MOV EDX, OFFSET greet2
-call WriteString
+   ; start game options (start with 2: gamble or leave)
+   MOV EDX, OFFSET greet2
+   call WriteString
 
-; take input
-MOV EDX, OFFSET buffer ; point to buffer
-MOV ECX, LENGTHOF buffer - 1
-CALL Readstring
+   ; take input
+   MOV EDX, OFFSET buffer ; point to buffer
+   MOV ECX, LENGTHOF buffer - 1
+   CALL Readstring
 
-MOV esi, 0 ; 
+   MOV esi, 0 ; 
 
-cmp buffer[ESI], 0
-je endloop
-cmp buffer[ESI], 'g' ;
-JNE endloop
+   cmp buffer[ESI], 0
+   je endloop
+   cmp buffer[ESI], 'g' ;
+   JNE endloop
 
-jmp workLoop
+   jmp workLoop
 
 ; work
 workLoop:
