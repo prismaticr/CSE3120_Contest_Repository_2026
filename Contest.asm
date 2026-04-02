@@ -101,7 +101,7 @@ winBet:
    JMP betLoop
 
 celebrate PROC
-   MOV EAX, white * 16 + black
+   MOV EAX, white * 16 + black ; white background black text
    CALL SetTextColor
    MOV EDX, OFFSET betMessageW
    CALL WriteString
